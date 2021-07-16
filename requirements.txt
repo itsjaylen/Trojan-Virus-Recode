@@ -1,0 +1,5 @@
+pyinstaller
+pyarmor
+Pymem
+mouse
+requests
