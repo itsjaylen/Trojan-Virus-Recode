@@ -36,3 +36,8 @@ minecraft account stealer
 corrupt system files
 
 RAT
+
+
+**How to build**
+
+run build.py DO NOT RUN COMPLIE.PY if you not using include folder (will change in future updates)
