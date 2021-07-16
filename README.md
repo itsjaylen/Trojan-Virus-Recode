@@ -4,6 +4,7 @@ just for fun
 
 **Feature list**
 
+highly customizable
 folder spamming
 adds to starup
 fake program support
@@ -20,3 +21,4 @@ anti debugger attacher
 chrome password dumper
 minecraft account stealer
 corrupt system files
+RAT
