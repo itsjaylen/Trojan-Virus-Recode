@@ -8,6 +8,7 @@ def build():
     if pack_include == True:
         with ZipFile("include.zip", "w", compression=ZIP_DEFLATED) as zip:
             try:
+                print("INFO Building zip")
                 for filename in listdir("include"):
                     zip.write(f"./include/{filename}")
             except Exception:
