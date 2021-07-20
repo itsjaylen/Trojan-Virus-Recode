@@ -3,7 +3,7 @@ from modules.tools import spam
 # Build Options will do something in future update
 
 # Packs zip file and extracts it (must have on to build atm)
-pack_include = True
+pack_include = False
 
 # Requests
 WEBHOOK_URL = ""

