@@ -4,6 +4,8 @@ just for fun
 
 **Feature list**
 
+FULLY BYPASSING WINDOWS DEFENDER
+
 highly customizable
 
 folder spamming
@@ -27,15 +29,27 @@ steal info
 
 anti debugger attacher
 
+dumps chrome passwords
+
+
+
 **ADD LATER**
 
-chrome password dumper
+full code clean up and optimization 
 
 minecraft account stealer
 
 corrupt system files
 
 RAT
+
+add a way to use include
+
+file encryption
+
+
+
+
 
 
 **How to build**
