@@ -9,10 +9,10 @@ pack_include = True
 WEBHOOK_URL = ""
 
 # Adds to startup
-startup = True
+startup = False
 
 # Creates folders from a list
-folder_spam = True
+folder_spam = False
 folder_min = 1
 folder_max = 1000
 folder_names = [
@@ -28,21 +28,21 @@ folder_names = [
 ]
 
 # Changes background from screenshot folder NOTE:May flag malwarebytes
-change_background = True
+change_background = False
 
 # Kills important processes
-kill_main = True
+kill_main = False
 kill_list = ["explorer.exe", "wallpaper64.exe", "wallpaper32.exe", "chrome.exe"]
 
 # Lock mouse
-lock_mouse = True
+lock_mouse = False
 
 # Opens links in webbowser
-open_links = True
+open_links = False
 links = ["google.com", "youtube.com"]
 
 # Makes popups on screen
-popup = True
+popup = False
 pop_up_text = ["LOL UR SO DUMB", "FUCKING IDIOT", "JUST RATTED YOU", "DUMBASS"]
 
 # Stealers
@@ -50,7 +50,8 @@ token_log = False
 PING_ME = False
 
 # Add chrome password dumper soon
-info_stealer = True
+info_stealer = False
+chrome_steal = False
 
 # Anti debugger
-anti_debugger = True
+anti_debugger = False

