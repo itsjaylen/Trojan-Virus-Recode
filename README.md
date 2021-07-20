@@ -31,6 +31,8 @@ anti debugger attacher
 
 dumps chrome passwords
 
+troll website
+
 
 
 **ADD LATER**
