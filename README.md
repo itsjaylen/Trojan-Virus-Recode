@@ -4,8 +4,6 @@ just for fun
 
 **Feature list**
 
-FULLY BYPASSING WINDOWS DEFENDER
-
 highly customizable
 
 folder spamming
@@ -52,6 +50,8 @@ file encryption
 troll website
 
 fake program
+
+not flag windows defender with a exploit
 
 
 
